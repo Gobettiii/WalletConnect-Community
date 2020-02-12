@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body style="background-color: whitesmoke">
+        {%if current_user.is_anonymous%}
+            {% block navbar_anonymous %} {% endblock %}
+        {%elif current_user.is_autenticated %}
+            {% block navbar_authenticated %} {% endblock %}
+        {% endif %}
+        {% block body %}{% endblock %}
+        <div class="text-center container" style="background-color: whitesmoke">
+            <footer class="page-footer font small pt-4" style="background-color: whitesmoke">
+                <div class="footer-copyright text-center py-3" style="background-color: whitesmoke">© 2018 Copyright:
+                    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
